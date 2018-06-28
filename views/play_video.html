@@ -1,0 +1,91 @@
+   
+  <div class="row content">
+    <div class="col-lg-12">
+    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Videos</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-bordered table-dark">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Video code</th>
+                        <th>Description</th>
+                        <th>Duration</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     <tr ng-repeat="x in video_list" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,x.Link,x.Title,x.Description,x.Video_code)">
+                      <td>{{$index}}</td>
+                      <td>{{ x.Title }}</td>
+                      <td>{{x.Video_code}}
+                      <td>{{ x.Description }}</td>
+                      <td>{{x.Duration}}</td>
+                    </tr>
+                    </tbody>
+                    </table>
+
+                    </div>
+                    </div>
+                    </div>
+
+</div>
+<div class="row content">
+<div class="col-lg-6">
+
+          <iframe id="VideoElement" src={{urlSelect}} width="600" height="400"></iframe>
+           <div id="videoTitle" ng-hide="videoPlaying">{{titleDisplay}}</div>
+            <div id="VideoOptions" class="panel panel-default" ng-show="showOptions"> </div>
+</div> 
+
+  <!--<button type="button" class="btn btn-info col-lg-4 col-lg-offset-1" data-toggle="collapse" data-target="#demo">Add tags</button>  -->
+  <div id="demo" class="col-lg-6" ng-init="displayData()" >
+  <br/><br/>
+    <label>Video code</label>  
+                     <input type="text" name="first_name" ng-model="vcode" class="form-control" placeholder="{{autofillCode}}" />  
+                     <br />  
+                     <label>Tags</label>  
+                     <input type="text" name="last_name" ng-model="vtags" class="form-control" data-role="tagsinput" />
+                     <label>Duration in</label>  
+                     <input type="text" name="d_in" ng-model="din" class="form-control" />
+                     <label>Duration out</label>  
+                     <input type="text" name="d_out" ng-model="dout" class="form-control" />
+                     <label>Details</label>  
+                     <input type="text" name="details" ng-model="det" class="form-control" />
+                     <label>Clip ID</label>  
+                     <input type="text" name="details" ng-model="clipId" class="form-control" />
+                     <br />  
+                     <!--<input type="hidden" ng-model="id" />  -->
+                     <input type="submit" name="btnInsert" class="btn btn-info" ng-click="insertData()" value="{{btnName}}"/>  
+                     <br /><br /> 
+                     <table class="table table-bordered">  
+                     <thead>
+                          <tr>  
+                               <th>Video code</th>  
+                               <th>Tags</th>  
+                               <th>Duration in</th> 
+                               <th>Duration out</th>
+                               <th>Details</th>
+                               <th>Clip ID</th>
+                               <th>Update</th>  
+                          </tr>  
+                    </thead> 
+                          <tr ng-repeat="y in v_tags"> 
+                                <td>{{y.Video_code}}</td> 
+                                <td>{{y.Tags}}</td> 
+                               <td>{{y.Duration_in}}</td>
+                               <td>{{y.Duration_out}}</td>
+                               <td>{{y.Details}}</td> 
+                                <td>{{y.Clip_id}}</td>
+                              <td><button ng-click="updateData(y.Details, y.Duration_in, y.Duration_out,y.Video_code,y.Tags,y.Clip_id)" class="btn btn-info btn-xs">Update</button></td>
+                              
+                          </tr>  
+                     </table>   
+                     
+             </div>       
+                     
+  </div>
+
+                     

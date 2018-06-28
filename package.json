@@ -1,0 +1,16 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "video-app.js",
+  "dependencies": {
+    "lite-server": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev":"lite-server"
+
+  },
+  "author": "",
+  "license": "ISC"
+}
